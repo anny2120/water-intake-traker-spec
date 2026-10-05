@@ -28,7 +28,8 @@ New features should only be added if they directly support water intake tracking
 
 The first version of the application supports Android only and works entirely locally on the user's device.
 
-- No user authorization is required.
+- User authentication and authorization are not required or implemented in the current version.
+- The application does not require an account or sign-in and works entirely locally on the device.
 - No cloud synchronization is implemented.
 - All application data is stored locally on the device.
 
@@ -133,7 +134,7 @@ Daily goals stored for previous dates MUST NOT be changed.
  In the top left corner of main screen located History button with calendar icon. Tapping the History button opens the full-screen History screen. Dialog should fill the whole screen.
 
 #### HIS-002
- In the dialog is shown calendar with circle of progress on each date. Under calendar is shown water intake, goal and percentage of completion for selected day (rounded to integer value). By default selected current date.
+ In the dialog is shown calendar with circle of progress on each date. Calendar dates MUST show progress circles without numeric progress labels. Numeric water intake information MUST be shown only below the calendar for the selected date. Under calendar is shown water intake, goal and percentage of completion for selected day (rounded to integer value). The numeric percentage MUST be calculated as waterIntake / storedDailyGoal * 100, rounded to an integer, without capping at 100%. For example, 2,100 ml with a stored daily goal of 2,000 ml MUST display 105%. This does not change the capped fill of the progress circle. By default selected current date.
  
 #### HIS-003
  User is able to select current date and previous days. Future days are not allowed to select. If there is no data for the selected date, under calendar should be shown "No available data for selected date". There should be no circle of progress on dates without data.
@@ -150,7 +151,8 @@ For each day with recorded water intake, the application MUST persist:
 - the daily goal applicable to that day.
 
 Given:
-- user used application for 4 days and have history of 4 days with default daily goal 2,000 ml;
+- the user has recorded water intake for four past dates, each with a daily goal of 2,000 ml;
+- all four dates are before the current local date; the current day is not included in this history example;
 - they have stored values: [1,500, 2,000], [2,000, 2,000], [2,100, 2,000], [1,400, 2,000].
 
 When:

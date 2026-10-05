@@ -7,9 +7,20 @@ product requirements and system-level specifications.
 
 Implementation code does not belong in this repository.
 
+## Documentation language
+
+All documentation and tasks in this repository MUST be written in English,
+including requirements, specifications, task descriptions, acceptance criteria,
+and README files. Use English when creating or updating these files,
+regardless of the language used in the conversation.
+
 ## Source of truth
 
 - `docs/product.md` defines the current expected product behavior.
+- Architecture documentation and ADRs are maintained in separate implementation
+  repositories. For Android, use `../android/docs/architecture.md` and
+  `../android/adr/`. Technical tasks reference these decisions rather than
+  defining a separate architecture in this repository.
 - Requirement IDs such as `MAIN-001`, `ADD-001`, and `DAY-001`
   must remain unique.
 - Do not silently change existing product behavior while implementing
